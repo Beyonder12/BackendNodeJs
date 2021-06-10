@@ -38,8 +38,9 @@ function findFirstStringInBracketRefactoring(str) {
   let charAfterFirstBracket = str[indexFirstBracketFound + 1];
   let indexClosingBracketFound = str.indexOf(")");
   if(strLength === 0 || indexFirstBracketFound === -1 || !charAfterFirstBracket || indexClosingBracketFound === -1) return '';
-  console.log('indexFirstBracketFound', indexFirstBracketFound+1, 'indexClosingBracketFound', indexClosingBracketFound)
-  return str.substr(indexFirstBracketFound+1, indexClosingBracketFound)
+  // console.log('indexFirstBracketFound', indexFirstBracketFound+1, 'indexClosingBracketFound', indexClosingBracketFound)
+  return str.split('').slice(indexFirstBracketFound+1, indexClosingBracketFound).join('');
+
 }
 
 // Testing
@@ -49,4 +50,6 @@ console.log("abc)) --> ", findFirstStringInBracketRefactoring("abc))")); //""
 console.log("(abc --> ", findFirstStringInBracketRefactoring("(abc")); //""
 
 
-// console.log('abc'.substr(0,2))
+a = 'abc'
+a = a.substr(0,2)
+console.log(a)
