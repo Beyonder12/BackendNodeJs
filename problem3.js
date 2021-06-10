@@ -43,10 +43,10 @@ function findFirstStringInBracketRefactoring(str) {
 }
 
 // Testing
-console.log("aa((bc)", findFirstStringInBracketRefactoring("aa((bc)")); //(bc
-console.log("(abc))", findFirstStringInBracketRefactoring("(abc))")); //abc
-console.log("abc))", findFirstStringInBracketRefactoring("abc))")); //""
-console.log("(abc"), findFirstStringInBracketRefactoring("(abc")); //""
+console.log("aa((bc) --> ", findFirstStringInBracketRefactoring("aa((bc)")); //(bc
+console.log("(abc)) --> ", findFirstStringInBracketRefactoring("(abc))")); //abc
+console.log("abc)) --> ", findFirstStringInBracketRefactoring("abc))")); //""
+console.log("(abc --> ", findFirstStringInBracketRefactoring("(abc")); //""
 
 
 // console.log('abc'.substr(0,2))
