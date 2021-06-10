@@ -26,3 +26,6 @@ function findFirstStringInBracket(str) {
 
 console.log(findFirstStringInBracket("aa((bc)")); //(bc
 console.log(findFirstStringInBracket("(abc))")); //abc
+
+
+// Let's refactoring the code to be better
