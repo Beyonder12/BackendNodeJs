@@ -24,8 +24,17 @@ function findFirstStringInBracket(str) {
   }
 }
 
+// Testing
 console.log(findFirstStringInBracket("aa((bc)")); //(bc
 console.log(findFirstStringInBracket("(abc))")); //abc
+console.log(findFirstStringInBracket("abc))")); //""
+console.log(findFirstStringInBracket("(abc")); //""
 
 
 // Let's refactoring the code to be better
+function findFirstStringInBracketRefactoring(str) {
+  if(str.length === 0 || str.indexOf("(") || str[str.indexOf("(") + 1] || str.indexOf(")")) return '';
+  // for(let i = str.indexOf("(") + 1; i < str.indexOf(")"); i++) {
+
+  // }
+}
