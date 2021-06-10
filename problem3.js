@@ -33,8 +33,20 @@ console.log(findFirstStringInBracket("(abc")); //""
 
 // Let's refactoring the code to be better
 function findFirstStringInBracketRefactoring(str) {
-  if(str.length === 0 || str.indexOf("(") || str[str.indexOf("(") + 1] || str.indexOf(")")) return '';
-  // for(let i = str.indexOf("(") + 1; i < str.indexOf(")"); i++) {
-
-  // }
+  let strLength = str.length;
+  let indexFirstBracketFound = str.indexOf("(") ;
+  let charAfterFirstBracket = str[indexFirstBracketFound + 1];
+  let indexClosingBracketFound = str.indexOf(")");
+  if(strLength === 0 || indexFirstBracketFound === -1 || !charAfterFirstBracket || indexClosingBracketFound === -1) return '';
+  console.log('indexFirstBracketFound', indexFirstBracketFound+1, 'indexClosingBracketFound', indexClosingBracketFound)
+  return str.substr(indexFirstBracketFound+1, indexClosingBracketFound)
 }
+
+// Testing
+console.log("aa((bc)", findFirstStringInBracketRefactoring("aa((bc)")); //(bc
+console.log("(abc))", findFirstStringInBracketRefactoring("(abc))")); //abc
+console.log("abc))", findFirstStringInBracketRefactoring("abc))")); //""
+console.log("(abc"), findFirstStringInBracketRefactoring("(abc")); //""
+
+
+// console.log('abc'.substr(0,2))
