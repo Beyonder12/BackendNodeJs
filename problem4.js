@@ -18,13 +18,24 @@
  */
 
  function anagramGroup(input) {
+   let res = []
    for(let i = 0; i < input.length; i++) {
-
+     let subArray = [];
+     if(input[i]) subArray.push(input[i])
+    //  console.log(input[i], subArray)
+    //  break;
      for(let j = i+1; j < input.length; j++) {
-        if(isAnagram(input[i], input[j])) ;
+        if(input[i] && input[j] && isAnagram(input[i], input[j])) {
+          subArray.push(input[j]);
+          input[j] = null;
+        }
      }
+     if(subArray[0]) res.push(subArray);
    }
+   return res;
  }
+
+ console.log(anagramGroup(['kita', 'atik', 'tika', 'aku', 'kia', 'makan', 'kua']))
 
  function isAnagram(arr1, arr2) {
    let sumCharCodeArr1 = 0, sumCharCodeArr2 = 0;
@@ -33,6 +44,8 @@
 
    return sumCharCodeArr1 === sumCharCodeArr2 ? true : false;
  }
+
+
 
 //isAnagram Testing
 console.log(isAnagram('edcb', 'abcde')); //false
