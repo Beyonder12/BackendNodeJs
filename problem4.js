@@ -35,7 +35,16 @@
    return res;
  }
 
+ //Testing sample
  console.log(anagramGroup(['kita', 'atik', 'tika', 'aku', 'kia', 'makan', 'kua']))
+ /*
+ [
+  [ 'kita', 'atik', 'tika' ],
+  [ 'aku', 'kua' ],
+  [ 'kia' ],
+  [ 'makan' ]
+]
+*/
 
  function isAnagram(arr1, arr2) {
    let sumCharCodeArr1 = 0, sumCharCodeArr2 = 0;
