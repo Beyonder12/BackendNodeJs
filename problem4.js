@@ -46,6 +46,8 @@
 ]
 */
 
+console.log(anagramGroup(['aaa', 'aaa', 'bb', 'bbb', 'bbb', 'cd', 'dc'])) //[ [ 'aaa', 'aaa' ], [ 'bb' ], [ 'bbb', 'bbb' ], [ 'cd', 'dc' ] ]
+
  function isAnagram(arr1, arr2) {
    let sumCharCodeArr1 = 0, sumCharCodeArr2 = 0;
    for(let c of arr1) sumCharCodeArr1 += c.charCodeAt();
