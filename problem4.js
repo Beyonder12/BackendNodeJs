@@ -19,18 +19,24 @@
 
  function anagramGroup(input) {
    for(let i = 0; i < input.length; i++) {
-     for(let j = 0; j < input.length; j++) {
 
+     for(let j = i+1; j < input.length; j++) {
+        if(isAnagram(input[i], input[j])) ;
      }
    }
  }
 
  function isAnagram(arr1, arr2) {
    let sumCharCodeArr1 = 0, sumCharCodeArr2 = 0;
-   for(let c of arr1) c.charCodeAt();
-   for(let c of arr2) c.charCodeAt();
+   for(let c of arr1) sumCharCodeArr1 += c.charCodeAt();
+   for(let c of arr2) sumCharCodeArr2 += c.charCodeAt();
 
    return sumCharCodeArr1 === sumCharCodeArr2 ? true : false;
  }
 
-// isAnagram('abcde')
+//isAnagram Testing
+console.log(isAnagram('edcb', 'abcde')); //false
+console.log(isAnagram('abcde', 'abcde')); //true
+console.log(isAnagram('cdbae', 'abcde')); //true
+
+// console.log('abcde' === 'bcdea')
