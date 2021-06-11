@@ -16,3 +16,21 @@
    ['kia']
  ]
  */
+
+ function anagramGroup(input) {
+   for(let i = 0; i < input.length; i++) {
+     for(let j = 0; j < input.length; j++) {
+
+     }
+   }
+ }
+
+ function isAnagram(arr1, arr2) {
+   let sumCharCodeArr1 = 0, sumCharCodeArr2 = 0;
+   for(let c of arr1) c.charCodeAt();
+   for(let c of arr2) c.charCodeAt();
+
+   return sumCharCodeArr1 === sumCharCodeArr2 ? true : false;
+ }
+
+// isAnagram('abcde')
