@@ -1,6 +1,6 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
-const express = require('express');
+const axios = require('axios'); // data scrapper
+const cheerio = require('cheerio'); // to manipulate data structure of result data of scrapping
+const express = require('express'); // route to the browser
 
 async function getPriceFeed() {
   try {
