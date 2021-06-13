@@ -53,5 +53,20 @@ async function getPriceFeed() {
 
 const app = express();
 
+app.get('/api/price-feed', async (req, res) => {
+  try {
+    const priceFeed = await getPriceFeed()
 
-getPriceFeed()
+    return res.status(200).json({
+      result: priceFeed
+    })
+  } catch(err) {
+    return res.status(500).json({
+      err : err.toString(),
+    })
+  }
+})
+
+app.listen(3001, () => {
+  console.log('running port on port 3001')
+})
