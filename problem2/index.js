@@ -1,4 +1,4 @@
-const axios = require('axios'); // data scrapper
+const axios = require('axios'); // data scrapper, promise based http client for node js and browser. it is easy to send asynchronous http request REST endpoints and peform CRUD operation
 const cheerio = require('cheerio'); // to manipulate data structure of result data of scrapping
 const express = require('express'); // route to the browser
 
