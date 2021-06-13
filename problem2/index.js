@@ -1,24 +1,57 @@
-var express = require("express");
-var fs = require('fs');
-var port = 3000;
+const axios = require('axios');
+const cheerio = require('cheerio');
+const express = require('express');
 
-var app = express();
+async function getPriceFeed() {
+  try {
+    const siteUrl = 'https://coinmarketcap.com/'
 
-app.get("/", (request, response) => {
-  response.end("Home page");
-})
+    const {data} = await axios({
+      method: "GET",
+      url: siteUrl,
+    })
 
-// app.get('/getUsersAPI', (request, response) => {
+    const $ = cheerio.load(data);
+    const elemSelector = '#__next > div > div.main-content > div.sc-57oli2-0.dEqHl.cmc-body-wrapper > div > div > div.tableWrapper___3utdq.cmc-table-homepage-wrapper___22rL4 > table > tbody > tr'
 
-// })
+    const keys = [
+      'rank',
+      'name',
+      'price',
+      '24h',
+      '7d',
+      'marketCap',
+      'volume',
+      'circulatingSupply'
+    ]
+    const coinArr = [];
 
-app.get('/hi', (request, response) => {
-  fs.readFile(__dirname+"/data/users.json", "utf-8", (err, results) => {
-    if(err) {
-      throw err;
-    } else {
-      response.end(results);
-    }
-  })
-})
-app.listen(port);
+    $(elemSelector).each((parentIdx, parentElem) => {
+      let keyIndex = 0;
+      const coinObj = {};
+
+      if(parentIdx <= 9) {
+        $(parentElem).children().each((childIdx, childElem) => {
+          let tdValue = $(childElem).text();
+
+          if (keyIndex === 1 || keyIndex === 5) {
+            tdValue = ($('p:first-child', $(childElem).html()).text());
+          }
+
+          if(tdValue) {
+            coinObj[keys[keyIndex]] = tdValue
+            keyIndex++;
+          }
+        })
+        coinArr.push(coinObj)
+      }
+    })
+  } catch (err) {
+    console.log(err);s
+  }
+}
+
+const app = express();
+
+
+getPriceFeed()
